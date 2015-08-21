@@ -14,7 +14,7 @@ var button = ActionButton({
 		"64": "./retailmenot-icon-64.png"
 	},
 	onClick: function(state) {
-		tabs.open("http://www.retailmenot.com/search.php?query=" + encodeURIComponent(tabs.activeTab.url));
+		searchRetailMeNot();
 	}
 });
 
@@ -26,6 +26,10 @@ var menuItem = contextMenu.Item({
 				   '	self.postMessage();' +
 				   '});',
 	onMessage: function () {
-		tabs.open("http://www.retailmenot.com/search.php?query=" + encodeURIComponent(tabs.activeTab.url));
+		searchRetailMeNot();
 	}
 });
+
+function searchRetailMeNot() {
+	tabs.open("http://www.retailmenot.com/search.php?query=" + encodeURIComponent(tabs.activeTab.url));
+}
